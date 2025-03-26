@@ -1,3 +1,11 @@
 .about_tab {
-    background-color: red;
+    display: flex;
+    justify-content: center;
+}
+
+.text {
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    width: 60vw;
 }
