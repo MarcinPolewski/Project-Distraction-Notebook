@@ -4,6 +4,8 @@ import './App.css'
 import TopBar from './components/TopBar/TopBar'
 import HomeTab from './components/HomeTab/HomeTab'
 import NotesTab from './components/NotesTab/NotesTab';
+import AboutTab from './components/AboutTab/AboutTab';
+import ContactTab from './components/ContactTab/ContactTab';
 
 
 export default function App() {
@@ -22,6 +24,13 @@ export default function App() {
         case 'notes':
             tabContent = <NotesTab />;
             break;
+        case 'about':
+            tabContent = <AboutTab />;
+            break;
+        case 'contact':
+            tabContent = <ContactTab />;
+            break
+
         default:
             tabContent = <HomeTab />;
     }
