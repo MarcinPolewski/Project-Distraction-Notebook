@@ -13,7 +13,9 @@ function Note() {
     return (
         <div className={`${classes.note} ${isEditing ? classes.editing : ''}`}>
             <input className={isEditing ? classes.editing : ""} type="text" defaultValue="title" readOnly={!isEditing} />
-            <input className={isEditing ? classes.editing : ""} type="text" defaultValue="content" readOnly={!isEditing} />
+            <hr />
+            <textarea className={isEditing ? classes.editing : ""} type="text" defaultValue="content" readOnly={!isEditing} />
+            <hr />
             <div className={classes.note_tool_bar}>
                 <button>Delete</button>
                 <button onClick={handleEditClick}>Edit</button>
