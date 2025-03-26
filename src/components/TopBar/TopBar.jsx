@@ -9,25 +9,25 @@ function Logo() {
     );
 }
 
-function Menu({ isStarted }) {
+function Menu({ isStarted, onTabChange }) {
     return (
         <div className={classes.button_container}>
-            <button className={classes.top_bar_button}>Home</button>
-            <button className={classes.top_bar_button}>About</button>
-            <button className={classes.top_bar_button}>Contact</button>
-            <button className={classes.top_bar_button}>
+            <button className={classes.top_bar_button} onClick={() => { onTabChange('home') }} >Home</button>
+            <button className={classes.top_bar_button} onClick={() => { onTabChange('about') }}> About</button>
+            <button className={classes.top_bar_button} onClick={() => { onTabChange('contact') }}>Contact</button>
+            <button className={classes.top_bar_button} onClick={() => { onTabChange('notes') }}>
                 {isStarted ? "Notes" : "Start"}
             </button>
         </div>
     )
 }
 
-export default function TopBar() {
+export default function TopBar(props) {
     return (
         <div className={classes.top_bar}>
             <div className={classes.top_bar_content}>
                 <Logo />
-                <Menu isStarted={false} />
+                <Menu {...props} />
             </div>
             <hr />
         </div>

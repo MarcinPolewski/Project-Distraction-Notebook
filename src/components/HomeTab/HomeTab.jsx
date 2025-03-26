@@ -18,7 +18,7 @@ function TextContainer() {
 
 export default function HomeTab() {
     return (
-        <div className={classes.home_tab}>
+        <div className={classes.home_tab + " tab"}>
             <img src={homeTabImg} />
             <TextContainer />
         </div>
