@@ -28,7 +28,7 @@ export default function App() {
 
     return (
         <div>
-            <TopBar onTabChange={handleTabChange} />
+            <TopBar onTabChange={handleTabChange} selectedTab={currentTab} />
             {tabContent}
         </div >
     );

@@ -18,7 +18,7 @@ function Note() {
             <hr />
             <div className={classes.note_tool_bar}>
                 <button>Delete</button>
-                <button onClick={handleEditClick}>Edit</button>
+                <button className={isEditing ? "selected" : ""} onClick={handleEditClick}>Edit</button>
                 <button>Save</button>
             </div>
         </div>);
