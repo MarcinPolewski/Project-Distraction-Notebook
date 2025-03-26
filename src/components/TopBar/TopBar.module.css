@@ -11,7 +11,7 @@
 }
 
 .top_bar {
-    padding: 2rem;
+    padding: rem;
 }
 
 .top_bar_content {
@@ -26,10 +26,7 @@
 }
 
 .top_bar_button {
-    background: none;
-    border: none;
     font-size: 1rem;
-    transition: 0.2s;
 }
 
 .top_bar_button:hover {
