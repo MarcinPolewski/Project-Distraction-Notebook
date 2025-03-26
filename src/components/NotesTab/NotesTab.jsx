@@ -11,7 +11,7 @@ function Note() {
     }
 
     return (
-        <div className={classes.note + isEditing ? (" " + classes.editing) : ""}>
+        <div className={`${classes.note} ${isEditing ? classes.editing : ''}`}>
             <input type="text" defaultValue="title" readOnly={!isEditing} />
             <input type="text" defaultValue="content" readOnly={!isEditing} />
             <div className={classes.note_tool_bar}>
@@ -25,7 +25,7 @@ function Note() {
 function AddNoteButton({ onAddClicked }) {
     return (
         <div className={classes.note}>
-            <button onClick={onAddClicked}>+</button>
+            <button className={classes.plus_button} onClick={onAddClicked}>+</button>
         </div>
     );
 }
