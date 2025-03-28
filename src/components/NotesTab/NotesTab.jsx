@@ -1,20 +1,29 @@
 import classes from "./NotesTab.module.css";
 
-import { useState, useRef } from 'react';
+import {useState, useEffect, useRef} from 'react';
 
-function Note() {
+function Note({onEdit, title="write title here", content="write content here"}) {
     const [isEditing, setEditing] = useState(false);
 
+    const titleRef = useRef();
+    const contentRef = useRef();
 
     function handleEditClick() {
-        setEditing((oldState) => !oldState);
+        setEditing((oldState) => {
+                if(oldState)
+                {
+                    onEdit(titleRef.current.value, contentRef.current.value)
+                }
+                return !oldState;
+            }
+        );
     }
 
     return (
         <div className={`${classes.note} ${isEditing ? classes.editing : ''}`}>
-            <input className={isEditing ? classes.editing : ""} type="text" defaultValue="title" readOnly={!isEditing} />
+            <input ref={titleRef} className={isEditing ? classes.editing : ""} type="text" defaultValue={title} readOnly={!isEditing} />
             <hr />
-            <textarea className={isEditing ? classes.editing : ""} type="text" defaultValue="content" readOnly={!isEditing} />
+            <textarea ref={contentRef} className={isEditing ? classes.editing : ""} type="text" defaultValue={content} readOnly={!isEditing} />
             <hr />
             <div className={classes.note_tool_bar}>
                 <button>Delete</button>
@@ -34,15 +43,39 @@ function AddNoteButton({ onAddClicked }) {
 
 export default function NotesTab() {
 
-    const [notes, setNotes] = useState([])
+    const [notes, setNotes] = useState(() => {
+        const savedNotes = localStorage.getItem('notes');
+        return savedNotes ? JSON.parse(savedNotes) : [];
+    });
+
+    useEffect(() => {
+        localStorage.setItem('notes', JSON.stringify(notes));
+    }, [notes]);
 
     function handleAddNote() {
-        setNotes(prevNotes => [...prevNotes, <Note key={Date.now()} />]);
+        setNotes(prevNotes => [...prevNotes, { id: Date.now(), title: 'title', content: 'content' }]);
+    }
+
+    function handleNoteEdited(noteId, newTitle, newContent) {
+        setNotes(prevNotes =>
+            prevNotes.map(note =>
+                note.id === noteId
+                    ? { ...note, title: newTitle, content: newContent } // Create a new object
+                    : note
+            )
+        );
     }
 
     return (
         <div className={classes.notes_tab + " tab"}>
-            {notes}
+            {notes.map((note) => (
+                    <Note
+                        key={note.id}
+                        title={note.title}
+                        content={note.content}
+                        onEdit={(newTitle, newContent)=>{handleNoteEdited(note.id, newTitle, newContent)}}
+                    />
+            ))}
             <AddNoteButton onAddClicked={handleAddNote} />
         </div >
     );
