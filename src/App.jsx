@@ -5,6 +5,7 @@ import TopBar from './components/TopBar/TopBar'
 import HomeTab from './components/HomeTab/HomeTab'
 import NotesTab from './components/NotesTab/NotesTab';
 import AboutTab from './components/AboutTab/AboutTab';
+import Footer from './components/Footer/Footer';
 
 
 export default function App() {
@@ -33,10 +34,13 @@ export default function App() {
     }
 
     return (
-        <div>
-            <TopBar onTabChange={handleTabChange} selectedTab={currentTab} />
-            {tabContent}
-        </div >
+        <>
+            <div className="top_bar_and_content">
+                <TopBar onTabChange={handleTabChange} selectedTab={currentTab} />
+                {tabContent}
+            </div>
+            <Footer />
+        </>
     );
 }
 

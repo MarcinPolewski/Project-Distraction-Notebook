@@ -12,9 +12,9 @@ function Logo() {
 function Menu({ isStarted, onTabChange, selectedTab }) {
     return (
         <div className={classes.button_container}>
-            <button className={`${classes.top_bar_button} ${selectedTab == 'home' ? "selected" : ""}`} onClick={() => { onTabChange('home') }} >Home</button>
-            <button className={`${classes.top_bar_button} ${selectedTab == 'about' ? "selected" : ""}`} onClick={() => { onTabChange('about') }}> About</button>
-            <button className={`${classes.top_bar_button} ${selectedTab == 'notes' ? "selected" : ""}`} onClick={() => { onTabChange('notes') }}>
+            <button className={`${classes.top_bar_button} ${selectedTab === 'home' ? "selected" : ""}`} onClick={() => { onTabChange('home') }} >Home</button>
+            <button className={`${classes.top_bar_button} ${selectedTab === 'about' ? "selected" : ""}`} onClick={() => { onTabChange('about') }}> About</button>
+            <button className={`${classes.top_bar_button} ${selectedTab === 'notes' ? "selected" : ""}`} onClick={() => { onTabChange('notes') }}>
                 {isStarted ? "Notes" : "Start"}
             </button>
         </div>
