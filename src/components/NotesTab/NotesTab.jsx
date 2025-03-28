@@ -2,7 +2,7 @@ import classes from "./NotesTab.module.css";
 
 import {useState, useEffect, useRef} from 'react';
 
-function Note({onEdit, title="write title here", content="write content here"}) {
+function Note({onEdit, onDelete, title="write title here", content="write content here"}) {
     const [isEditing, setEditing] = useState(false);
 
     const titleRef = useRef();
@@ -26,7 +26,7 @@ function Note({onEdit, title="write title here", content="write content here"}) 
             <textarea ref={contentRef} className={isEditing ? classes.editing : ""} type="text" defaultValue={content} readOnly={!isEditing} />
             <hr />
             <div className={classes.note_tool_bar}>
-                <button>Delete</button>
+                <button onClick={onDelete}>Delete</button>
                 <button className={isEditing ? "selected" : ""} onClick={handleEditClick}>Edit</button>
                 <button>Save</button>
             </div>
@@ -66,6 +66,9 @@ export default function NotesTab() {
         );
     }
 
+    function handleDeleteClick(deletedNoteId) {
+        setNotes(prevNotes => prevNotes.filter(note => note.id !== deletedNoteId).map(note => ({ ...note })));
+    }
     return (
         <div className={classes.notes_tab + " tab"}>
             {notes.map((note) => (
@@ -74,6 +77,9 @@ export default function NotesTab() {
                         title={note.title}
                         content={note.content}
                         onEdit={(newTitle, newContent)=>{handleNoteEdited(note.id, newTitle, newContent)}}
+                        onDelete={() => {
+                            handleDeleteClick(note.id);
+                        }}
                     />
             ))}
             <AddNoteButton onAddClicked={handleAddNote} />
