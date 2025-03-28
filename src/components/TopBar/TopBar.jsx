@@ -1,4 +1,5 @@
 import classes from "./TopBar.module.css";
+import {useState} from "react";
 
 function Logo() {
     return (
@@ -9,7 +10,15 @@ function Logo() {
     );
 }
 
-function Menu({ isStarted, onTabChange, selectedTab }) {
+function Menu({  onTabChange, selectedTab }) {
+
+    const[isStarted, setIsStarted] = useState(false);
+
+    if(!isStarted && selectedTab === "notes")
+    {
+        setIsStarted(true);
+    }
+
     return (
         <div className={classes.button_container}>
             <button className={`${classes.top_bar_button} ${selectedTab === 'home' ? "selected" : ""}`} onClick={() => { onTabChange('home') }} >Home</button>
