@@ -17,9 +17,9 @@ function TextContainer({ heading, paragraphs }) {
 export default function TextWithImage({ image, heading, paragraphs, imageOnRight = false }) {
     return (
         <div className={classes.text_with_image}>
-            {!imageOnRight && <img src={image} />}
+            {!imageOnRight && <img alt={"stock image"} src={image} />}
             <TextContainer heading={heading} paragraphs={paragraphs} />
-            {imageOnRight && <img src={image} />}
+            {imageOnRight && <img alt={"stock image"} src={image} />}
         </div>
 
     );
