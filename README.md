@@ -1,12 +1,12 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## About
+It’s a simple project created to practice React, CSS, and HTML. This app demonstrates the concept of a Distraction-Free Notebook, designed to enhance focus. The application features smooth animations and is responsive on desktop screens. The design is intended to evoke a sense of space and peace.
+## Technologies:
+- React.js
+- CSS
+- HTML
+## Link to hosted website
+[click here](https://marcinpolewski.github.io/Project-Distraction-Notebook/)
+## Result Photos
+![home_page_photo](/result-photos/home_page.png)
+![notes_page_photo](/result-photos/notes_page.png)
+![about_page_photo](/result-photos/about_page.png)
