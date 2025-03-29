@@ -53,6 +53,10 @@ button:hover.plus_button {
     text-decoration: none;
 }
 
+.note_tool_bar{
+
+}
+
 input,
 textarea {
     outline: none;

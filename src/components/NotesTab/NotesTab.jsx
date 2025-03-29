@@ -23,12 +23,11 @@ function Note({onEdit, onDelete, title="write title here", content="write conten
         <div className={`${classes.note} ${isEditing ? classes.editing : ''}`}>
             <input ref={titleRef} className={isEditing ? classes.editing : ""} type="text" defaultValue={title} readOnly={!isEditing} />
             <hr />
-            <textarea ref={contentRef} className={isEditing ? classes.editing : ""} type="text" defaultValue={content} readOnly={!isEditing} />
+            <textarea ref={contentRef} className={isEditing ? classes.editing : ""} defaultValue={content} readOnly={!isEditing} />
             <hr />
             <div className={classes.note_tool_bar}>
                 <button onClick={onDelete}>Delete</button>
                 <button className={isEditing ? "selected" : ""} onClick={handleEditClick}>Edit</button>
-                <button>Save</button>
             </div>
         </div>);
 }

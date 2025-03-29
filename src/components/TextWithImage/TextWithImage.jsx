@@ -1,5 +1,4 @@
 import classes from "./TextWithImage.module.css";
-import homeTabImg from "../../assets/home_tab.jpeg";
 
 function TextContainer({ heading, paragraphs }) {
 
